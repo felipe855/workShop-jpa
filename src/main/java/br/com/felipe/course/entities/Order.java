@@ -29,10 +29,10 @@ public class Order implements Serializable {
     public Order() {
     }
 
-    public Order(Long id, Instant moment, OrderStatus orderStatus,User client) {
+    public Order(Long id, Instant moment, Integer orderStatus,User client) {
         this.id = id;
         this.moment = moment;
-        setOrderStatus(orderStatus);
+        this.orderStatus = orderStatus;
         this.client = client;
     }
 
@@ -62,12 +62,6 @@ public class Order implements Serializable {
 
     public OrderStatus getOrderStatus() {
         return OrderStatus.toEnum(orderStatus);
-    }
-
-    public void setOrderStatus(OrderStatus orderStatus) {
-        if (orderStatus == null) {
-            this.orderStatus = orderStatus.getCode();
-        }
     }
 
     @Override
