@@ -1,14 +1,8 @@
 package br.com.felipe.course.config;
 
-import br.com.felipe.course.entities.Category;
-import br.com.felipe.course.entities.Order;
-import br.com.felipe.course.entities.Product;
-import br.com.felipe.course.entities.User;
+import br.com.felipe.course.entities.*;
 import br.com.felipe.course.enums.OrderStatus;
-import br.com.felipe.course.repository.CategoryRepository;
-import br.com.felipe.course.repository.OrderRepository;
-import br.com.felipe.course.repository.ProductRepository;
-import br.com.felipe.course.repository.UserRepository;
+import br.com.felipe.course.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -29,9 +23,11 @@ public class TestConfig implements CommandLineRunner {
     private OrderRepository orderRepository;
     @Autowired
     private CategoryRepository categoryRepository;
-
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    private OrderItemRepository orderItemRepository;
 
     @Override
     public void run(String... args)  {
@@ -64,6 +60,13 @@ public class TestConfig implements CommandLineRunner {
         Order order2 = new Order(null, Instant.parse("2019-07-21T03:42:10Z"), OrderStatus.WAITING_PAYMENT.getCode(),user2);
         Order order3 = new Order(null, Instant.parse("2019-07-22T15:21:22Z"), OrderStatus.WAITING_PAYMENT.getCode(),user);
         orderRepository.saveAll(asList(order, order2, order3));
+
+        OrderItem oi1 = new OrderItem(order, p1, 2, p1.getPrice());
+        OrderItem oi2 = new OrderItem(order, p3, 1, p3.getPrice());
+        OrderItem oi3 = new OrderItem(order2, p3, 2, p3.getPrice());
+        OrderItem oi4 = new OrderItem(order3, p5, 2, p5.getPrice());
+
+        orderItemRepository.saveAll(asList(oi1, oi2, oi3, oi4));
 
     }
 }
