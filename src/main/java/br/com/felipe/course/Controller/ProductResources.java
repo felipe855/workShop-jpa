@@ -2,6 +2,7 @@ package br.com.felipe.course.Controller;
 
 import br.com.felipe.course.entities.Product;
 import br.com.felipe.course.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,11 +15,8 @@ import java.util.List;
 @RequestMapping("/products")
 public class ProductResources {
 
+    @Autowired
     private ProductService productService;
-
-    public ProductResources(ProductService productService) {
-        this.productService = productService;
-    }
 
     @GetMapping
     public ResponseEntity<List<Product>> findAll() {

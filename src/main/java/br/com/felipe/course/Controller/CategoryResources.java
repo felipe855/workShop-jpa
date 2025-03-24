@@ -1,9 +1,8 @@
 package br.com.felipe.course.Controller;
 
 import br.com.felipe.course.entities.Category;
-import br.com.felipe.course.entities.User;
 import br.com.felipe.course.service.CategoryService;
-import br.com.felipe.course.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,11 +15,8 @@ import java.util.List;
 @RequestMapping("/categories")
 public class CategoryResources {
 
+    @Autowired
     private CategoryService categoryService;
-
-    public CategoryResources(CategoryService categoryService) {
-        this.categoryService = categoryService;
-    }
 
     @GetMapping
     public ResponseEntity<List<Category>> findAll() {

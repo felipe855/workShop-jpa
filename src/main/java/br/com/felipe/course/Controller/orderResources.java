@@ -1,9 +1,8 @@
 package br.com.felipe.course.Controller;
 
 import br.com.felipe.course.entities.Order;
-import br.com.felipe.course.entities.User;
 import br.com.felipe.course.service.OrderService;
-import br.com.felipe.course.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,11 +15,8 @@ import java.util.List;
 @RequestMapping("/orders")
 public class orderResources {
 
+    @Autowired
     private OrderService orderService;
-
-    public orderResources(OrderService orderService) {
-        this.orderService = orderService;
-    }
 
     @GetMapping
     public ResponseEntity<List<Order>> findAll() {

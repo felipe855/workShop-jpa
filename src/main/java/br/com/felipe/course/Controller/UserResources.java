@@ -2,6 +2,7 @@ package br.com.felipe.course.Controller;
 
 import br.com.felipe.course.entities.User;
 import br.com.felipe.course.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -13,11 +14,8 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserResources {
 
+    @Autowired
     private UserService userService;
-
-    public UserResources(UserService userService) {
-        this.userService = userService;
-    }
 
     @GetMapping
     public ResponseEntity<List<User>> findAll() {
@@ -42,5 +40,11 @@ public class UserResources {
     public ResponseEntity<Void> delete(@PathVariable Long id){
         userService.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<User> update(@PathVariable Long id, @RequestBody User user){
+        user = userService.update(id, user);
+        return ResponseEntity.ok().body(user);
     }
 }
