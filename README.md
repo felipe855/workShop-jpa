@@ -4,7 +4,7 @@ Este repositório contém um exemplo de aplicação Java utilizando a API JPA (J
 O projeto foi desenvolvido como parte de um workshop focado em JPA, demonstrando como configurar e utilizar JPA para persistir e consultar dados de um banco de dados.
 
 ## Tecnologias Utilizadas
-- *ava 21
+- Java 21
 - Spring Boot
 - JPA (Java Persistence API)
 - Hibernate (Implementação do JPA)
