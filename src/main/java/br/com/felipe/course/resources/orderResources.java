@@ -1,4 +1,4 @@
-package br.com.felipe.course.Controller;
+package br.com.felipe.course.resources;
 
 import br.com.felipe.course.entities.Order;
 import br.com.felipe.course.service.OrderService;
