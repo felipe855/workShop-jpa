@@ -1,6 +1,5 @@
 package br.com.felipe.course.service;
 
-
 import br.com.felipe.course.entities.Category;
 import br.com.felipe.course.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,6 @@ public class CategoryService {
 
     @Autowired
     private CategoryRepository categoryRepository;
-
 
     public List<Category> findAll() {
         return categoryRepository.findAll();

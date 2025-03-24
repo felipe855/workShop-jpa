@@ -2,7 +2,6 @@ package br.com.felipe.course.resources.exceptions;
 
 import br.com.felipe.course.service.exceptions.DataBaseException;
 import br.com.felipe.course.service.exceptions.ResourceNotFoundException;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,6 +28,4 @@ public class ResourceExceptionHandler {
         StandartError err = new StandartError(Instant.now(), status.value(), error, e.getMessage(), request.getRequestURI());
         return ResponseEntity.status(status).body(err);
     }
-
-
 }

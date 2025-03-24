@@ -1,6 +1,5 @@
 package br.com.felipe.course.service;
 
-
 import br.com.felipe.course.entities.Product;
 import br.com.felipe.course.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,6 @@ public class ProductService {
 
     @Autowired
     private ProductRepository productRepository;
-
 
     public List<Product> findAll() {
         return productRepository.findAll();
